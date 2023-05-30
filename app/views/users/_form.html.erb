@@ -1,4 +1,4 @@
-<div class="container ">
+<div class="container">
 
 
   <%= render 'shared/errors', obj: @user %>
@@ -27,7 +27,7 @@
     </div>
 
     <div class="input-group row justify-content-center my-3">
-      <%= form.submit 'sign up', class: "btn btn-primary py-2 px-4 w-25" %>
+      <%= form.submit(@user.new_record? ? 'sign up': 'update account', class: "btn btn-primary py-2 px-4 w-25") %>
     </div>
 
   <% end %>

@@ -1,39 +1,10 @@
 <h1 class="text-center mt-4">Listing all Articles</h1>
-
-<% @articles.each do |article| %>
-    <div class="row justify-content-md-center">
-        <div class="col-8 mt-4">
-            <div class="card text-center shadow mb-3 bg-white rounded">
-                <div class="card-header fst-italic">
-                    by <%= article.user.username %>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title"><%= article.title %></h5>
-                    <p class="card-text"><%= truncate(article.description, length: 50) %></p>
-
-                    <%= link_to "View", article_path(article), class:"btn btn-outline-success" %>
-                    <%= link_to "Edit", edit_article_path(article), class:"btn btn-outline-primary" %>
-                    <%= link_to "Delete", article_path(article), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
-            
-                </div>
-                
-                <div class="card-footer text-body-secondary">
-                    <small>Created <%= time_ago_in_words(article.created_at) %>
-                    edited <%= time_ago_in_words(article.updated_at) %>
-                    </small>
-                </div>
-            </div>
-        </div>
+<div class="container alpha-container">
+    <div class="flickr_pagination">
+        <%= will_paginate @articles, :container => false %>
     </div>
-<% end %>
-
-<div class="text-center">
-    <br>
-    <div>
-    <%= link_to "Create New article", new_article_path %>
-    </div>
-    <br>
-    <div>
-    <%= link_to "Go to Home page", root_path %>
+    <%= render 'article' %>
+    <div class="flickr_pagination">
+        <%= will_paginate @articles, :container => false %>
     </div>
 </div>
