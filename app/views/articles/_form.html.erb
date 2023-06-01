@@ -11,10 +11,17 @@
       </div>
     </div>
 
-    <div class="input-group row">
+    <div class="input-group row mb-2">
       <%= form.label :description, class: "col-2 col-form-label text-dark fw-bold shadow rounded h-25" %>
       <div class="col-10"> 
         <%= form.text_area :description, rows: 10, class: "form-control shadow rounded", placeholder: "Description of article" %>
+      </div>
+    </div>
+
+    <div class="input-group row">
+      <%= form.label :category, class: "col-2 col-form-label text-dark fw-bold shadow rounded h-25" %>
+      <div class="col-10"> 
+        <%= form.collection_select :category_ids, Category.all, :id, :name, { prompt: "Make your selection from the list below(can be emply)"}, {multiple: true, size: 3, class: "form-select shadow rounded"} %>
       </div>
     </div>
 

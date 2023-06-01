@@ -1,0 +1,21 @@
+<div class="container">
+
+
+  <%= render 'shared/errors', obj: @category %>
+
+  <%= form_with(model: @category, local: true,) do |form| %>
+
+    <div class="input-group row mb-2">
+      <%= form.label :name, "Category name", class: "col-2 col-form-label text-dark fw-bold shadow rounded" %>
+      <div class="col-10">
+        <%= form.text_field :name, class: "form-control shadow rounded", placeholder: "Enter a name" %>
+      </div>
+    </div>
+
+    <div class="input-group row justify-content-center my-3">
+      <%= form.submit class: "btn btn-primary py-2 px-4 w-25" %>
+    </div>
+
+  <% end %>
+
+</div>
